@@ -27,7 +27,7 @@ namespace CatalogApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddSwaggerGen(c => c.SwaggerDoc("V1", new Info() {Title="Catalog Api",Version="1.0",Description="Operations for the catalaog management" }));
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info() {Title="Catalog Api",Version="1.0",Description="Operations for the catalaog management" }));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -48,7 +48,7 @@ namespace CatalogApi
 
             //});
 
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog API"); });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Catalog API");c.RoutePrefix = ""; });
             app.UseMvc();
         }
     }
